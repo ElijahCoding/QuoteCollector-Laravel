@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-10">
-        <button v-for="quote in quotes" :key="quote.id" class="block">
+        <button @click="saveQuote(quote)" v-for="quote in quotes" :key="quote.id" class="block">
             <Quote :quote="quote"/>
         </button>
     </div>
@@ -23,8 +23,13 @@ export default {
             quotes.value = response.data.data
         })
 
+        const saveQuote = async (quote) => {
+            console.log('save')
+        }
+
         return {
-            quotes
+            quotes,
+            saveQuote,
         }
     }
 }
