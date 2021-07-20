@@ -24,7 +24,11 @@ export default {
         })
 
         const saveQuote = async (quote) => {
-            console.log('save')
+            await axios.patch(`/api/quotes/${quote.id}`, {
+                saved: true,
+            })
+
+            quotes.value = quotes.value.filter(q => q.id !== quote.id)
         }
 
         return {
