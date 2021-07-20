@@ -10,3 +10,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/quotes', \App\Http\Controllers\QuoteIndexController::class);
 Route::patch('/quotes/{quote}', \App\Http\Controllers\QuoteUpdateController::class);
+
+Route::get('/quotes/collected', \App\Http\Controllers\CollectedIndexController::class);

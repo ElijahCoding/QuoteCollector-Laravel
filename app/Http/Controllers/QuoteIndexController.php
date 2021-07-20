@@ -9,6 +9,6 @@ class QuoteIndexController extends Controller
 {
     public function __invoke()
     {
-        return QuoteResource::collection(Quote::get());
+        return QuoteResource::collection(Quote::query()->whereSaved(false)->get());
     }
 }
