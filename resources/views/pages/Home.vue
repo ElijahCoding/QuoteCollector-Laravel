@@ -10,6 +10,7 @@
 import {ref, onMounted} from 'vue'
 import axios from 'axios'
 import Quote from '@/views/components/Quote.vue'
+import {useStore} from 'vuex'
 
 export default {
     components: {
@@ -17,6 +18,8 @@ export default {
     },
     setup() {
         const quotes = ref([])
+
+        const store = useStore()
 
         onMounted(async () => {
             let response = await axios.get('/api/quotes')
@@ -29,6 +32,8 @@ export default {
             })
 
             quotes.value = quotes.value.filter(q => q.id !== quote.id)
+
+            store.commit('INCREMENT_COLLECTED_COUNT', 1)
         }
 
         return {
