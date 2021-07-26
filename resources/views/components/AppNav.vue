@@ -10,3 +10,17 @@
         </ol>
     </nav>
 </template>
+
+<script>
+import {useStore} from 'vuex'
+import {computed} from "vue";
+export default {
+    setup() {
+        const store = useStore()
+
+        return {
+            collectedCount: computed(() => store.getters.collectedCount)
+        }
+    }
+}
+</script>
