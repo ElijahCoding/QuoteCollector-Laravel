@@ -12,3 +12,4 @@ Route::get('/quotes', \App\Http\Controllers\QuoteIndexController::class);
 Route::patch('/quotes/{quote}', \App\Http\Controllers\QuoteUpdateController::class);
 
 Route::get('/quotes/collected', \App\Http\Controllers\CollectedIndexController::class);
+Route::get('/quotes/collected/count', \App\Http\Controllers\CollectedCountController::class);

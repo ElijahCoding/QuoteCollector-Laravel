@@ -6,8 +6,14 @@
 </template>
 <script>
 import AppNav from "@/views/components/AppNav.vue";
+import {useStore} from 'vuex'
 
 export default {
-    components: {AppNav}
+    components: {AppNav},
+    setup() {
+        const store = useStore()
+
+        store.dispatch('getCollectedCount')
+    },
 }
 </script>
